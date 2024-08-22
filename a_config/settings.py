@@ -25,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m_5wghrn2xy=+uw77y2hr*2%us%nkdp@g-%fdym1s8a6&s8hl1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+            '194.58.114.188',
+            ]
 
 
 # Application definition
@@ -63,9 +65,12 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+#CORS_ALLOWED_ORIGINS = [
+#            'http://194.58.114.188',
+#                'https://194.58.114.188',
+#                ]
+
+CORS_ALLOW_ALL_ORIGINS =True
 
 ROOT_URLCONF = 'a_config.urls'
 
@@ -87,16 +92,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'a_config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+
+
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+ #       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+ #   }
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'generate_in',
+        'USER': 'gen_in',
+        'PASSWORD': 'm8Qz5E8R6gP1xY2u',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
+
+
+
 
 
 # Password validation
@@ -138,7 +161,7 @@ USE_TZ = True
 
 # --‐-----MEDIA---------
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL ='/media_get/'
+MEDIA_URL ='/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -178,4 +201,4 @@ NOTIFICATION_MODEL = 'generator.Invoice'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

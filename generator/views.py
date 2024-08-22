@@ -48,7 +48,7 @@ def get_receipt(request, pk):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+#@permission_classes([IsAuthenticated])
 def get_config(request):
     config = PaymentInformation.objects.get()
     serializer =PaymentSerializer(config, many=False)

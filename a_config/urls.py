@@ -29,7 +29,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('', react_app, name='react_app'),
     #  ADMIN site
-    path('callofduty/', admin.site.urls),
+    path('admin', admin.site.urls),
     
     # API for invoice and items
     path('api_V1/', include('generator.urls')),
